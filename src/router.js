@@ -22,8 +22,8 @@ export default new VueRouter({
    */
 
   routes: [
-    { path: '/', component: load('Hello') },
 
+    { path: '/', component: load('Intro') },
     { path: '/createvote', component: load('Createvote') },
     { path: '/vote', component: load('Vote') },
     { path: '/results', component: load('Results') },
