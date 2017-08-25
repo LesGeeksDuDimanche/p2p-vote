@@ -39,14 +39,15 @@ Quasar.start(() => {
 Vue.mixin({
   methods: {
     createURL(voteInfo) {
-			let urlParameters = Object.keys(voteInfo).map((i) => i+'='+data[i]).join('&')
+			let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
 		  return urlParameters;
 		},
 		testURL() {
 			this.$http.get('/statics/votes/simplevote').then((response) => {
 				console.log(response.bodyText)
-				this.currentItem = JSON.parse(response.bodyText)
-				console.log(this.currentItem)
+				var voteParams= JSON.parse(response.bodyText)
+				console.log(voteParams)
+				alert(this.createURL(voteParams))
 				// console.log(this.currentItem)
 				// success callback
 			}, (response) => {
