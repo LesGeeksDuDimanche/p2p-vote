@@ -8,6 +8,7 @@
       {{questions[0].title}}
     </big>
     <template v-for="(item, index) in questions[0].answers">
+      <!-- TODO: Change this to use radio buttons instead -->
       <!-- v-if just assigns the color -->
       <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
       <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
