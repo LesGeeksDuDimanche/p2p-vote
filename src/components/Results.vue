@@ -10,24 +10,7 @@
 </template>
 
 <script>
-import { Pie, mixins } from 'vue-chartjs'
-
-const PieChart = Pie.extend({
-  mixins: [mixins.reactiveProp],
-  props: ['data', 'labels'],
-  mounted () {
-    this.renderChart({
-      labels: this.labels,
-      datasets: [
-        {
-          // hopefully we don't need more than this many colors...
-          backgroundColor: ["#ee4035", "#f37737", "#f9e97a", "#7ac043", "#9ed9f7"],
-          data: this.data
-        }
-      ]
-    })
-  }
-});
+import PieChart from './PieChart';
 
 export default {
   data () {
