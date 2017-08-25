@@ -39,23 +39,23 @@ Quasar.start(() => {
 Vue.mixin({
   methods: {
     createURL(voteInfo) {
-			let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
-		  return urlParameters;
-		},
-		feedURL() {
-			this.$http.get('/statics/votes/simplevote').then((response) => {
-				// console.log(response.bodyText)
-				var voteParams= JSON.parse(response.bodyText)
-				console.log(voteParams)
-				// alert(this.createURL(voteParams))
-				return this.createURL(voteParams)
-				// console.log(this.currentItem)
-				// success callback
-			}, (response) => {
-				// error callback
-				console.log("Error in feedURL")
+      let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
+      return urlParameters;
+    },
+    feedURL() {
+      this.$http.get('/statics/votes/simplevote').then((response) => {
+        // console.log(response.bodyText)
+        var voteParams= JSON.parse(response.bodyText)
+        console.log(voteParams)
+        // alert(this.createURL(voteParams))
+        return this.createURL(voteParams)
+        // console.log(this.currentItem)
+        // success callback
+      }, (response) => {
+        // error callback
+        console.log("Error in feedURL")
 
-			});
-		}
+      });
+    }
   }
 })
