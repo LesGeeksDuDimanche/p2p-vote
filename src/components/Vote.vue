@@ -3,11 +3,13 @@
   <div class="layout-padding">
     <h1>Vote</h1>
     <h2>{{title}}</h2>
-    <div class="text-italic mb3">by {{sponsor}}</div>
+    <div class="text-italic">by {{sponsor}}</div>
+    <div class="mb3">Vote ends in {{timeRemaining}}</div>
     <big class="block mb2">
       {{questions[0].title}}
     </big>
     <template v-for="(item, index) in questions[0].answers">
+      <!-- TODO: Change this to use radio buttons instead -->
       <!-- v-if just assigns the color -->
       <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
       <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
@@ -17,7 +19,8 @@
 </template>
 
 <script>
-import { QBtn } from 'quasar'
+import { QBtn } from 'quasar';
+import moment from 'moment';
 
 const stubData = {
   sponsor: 'robert@riemann.cc',
@@ -30,10 +33,13 @@ const stubData = {
     },
   ],
   title: 'My Vote Title',
-  start: "2017-08-25T16:57:58.441Z",
+  start: "2017-08-26T16:57:58.441Z",
 };
 
 export default {
+  created: function () {
+    this.countdown();
+  },
   data () {
     // placeholder for vote data, put in url via
     // data query param in url (?data=)
@@ -41,7 +47,8 @@ export default {
     console.log(data);
 
     return Object.assign({}, stubData, {
-      chosenAnswerIndex: null
+      chosenAnswerIndex: null,
+      timeRemaining: '-'
     });
   },
   components: { QBtn },
@@ -59,7 +66,19 @@ export default {
       } else {
         alert('No chosenAnswerIndex set');
       }
-    }
+    },
+    countdown() {
+      const eventTime = moment(this.start);
+      const currentTime = moment();
+      const diffTime = eventTime - currentTime;
+      const interval = 1000;
+      let duration = moment.duration(diffTime, 'milliseconds');
+
+      setInterval(() => {
+        duration = moment.duration(duration - interval, 'milliseconds');
+        this.timeRemaining = `${duration.hours()} hours ${duration.minutes()} minutes ${duration.seconds()} seconds`;
+      }, interval);
+    },
   }
 }
 </script>
