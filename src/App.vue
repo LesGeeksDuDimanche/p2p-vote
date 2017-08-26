@@ -2,7 +2,9 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
   	<router-link to="/"><i>P2P Vote</i></router-link>
-    <router-view />
+  	<div class="text-center">
+    	<router-view />
+    </div>
   </div>
 </template>
 
