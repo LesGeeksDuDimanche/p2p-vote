@@ -2,7 +2,6 @@
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
   	<router-link to="/"><i>P2P Vote</i></router-link>
-
     <router-view />
   </div>
 </template>
@@ -12,7 +11,7 @@
  * Root component
  */
 export default {
-	
+
 
 
 }

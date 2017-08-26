@@ -27,6 +27,19 @@ import 'quasar-extras/material-icons'
 // import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
+// navigation guard
+import Authorisation from './lib/Authorisation'
+
+// from https://web-und-die-welt.de/web/authentifizierung-vue-app/
+router.beforeEach((to, from, next) => {
+  console.log(to.meta);
+  if (to.meta.auth && !Authorisation.authenticated()) {
+    next('/robert')
+  } else {
+    next()
+  }
+});
+
 Quasar.start(() => {
   /* eslint-disable no-new */
   new Vue({
@@ -38,6 +51,12 @@ Quasar.start(() => {
 
 Vue.mixin({
   methods: {
+    login() {
+      return Authorisation.login();
+    },
+    logout() {
+      return Authorisation.logout();
+    },
     createURL(voteInfo) {
       let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
       return urlParameters;

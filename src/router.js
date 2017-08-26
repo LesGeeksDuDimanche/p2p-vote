@@ -29,6 +29,14 @@ export default new VueRouter({
     { name: 'vote-view', path: '/vote/:voteID', component: load('Vote'), props:true },
     { path: '/results', component: load('Results') },
 
+    { path: '/robert', component: load('Robert'),
+      children: [
+        { path: '', component: load('RobertHome'), meta: { auth: false } },
+        { path: 'create', component: load('RobertCreate'), meta: { auth: true } },
+        { path: 'show/:voteId', component: load('RobertShow'), meta: { auth: true } },
+      ]
+    },
+
     // Always leave this last one
     { path: '*', component: load('Error404') } // Not found
   ]
