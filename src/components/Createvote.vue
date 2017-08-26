@@ -8,7 +8,7 @@
       <q-input type="text" placeholder="Question" v-model="question"/>
       <q-chips-input v-model="options" placeholder="Add option"/>
       <div class="mt4">
-        {{hashedUrl}}
+        <router-link :to="{ name: 'vote-view', params: { voteID: voteID }, query: { data: urlData }}">Create Vote</router-link>
       </div>
   </div>
 </template>
@@ -23,6 +23,7 @@ export default {
       title: '',
       author: '',
       question: '',
+      voteID: Math.round(Math.random() * 10000000),
       now: moment().toDate(),
       options: [],
       endDate: moment().add(2, 'days').toDate()
@@ -41,13 +42,15 @@ export default {
     prettyDate() {
       return moment(this.endDate).format('MMMM D YYYY, h:mm a')
     },
-    hashedUrl() {
+    urlData() {
       const data = {
+        sponsor: this.author,
+        questions: {
+          title: this.question,
+          answers: this.options
+        },
         title: this.title,
-        author: this.author,
-        question: this.question,
-        endDate: moment(this.endDate).toISOString(),
-        options: this.options,
+        start: moment(this.endDate).toISOString(),
       };
 
       return JSON.stringify(data);

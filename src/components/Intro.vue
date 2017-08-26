@@ -21,6 +21,13 @@
 
     <router-link :to="{ name: 'vote-view', params: { voteID: 'FirstVOTE' }, query: { sponsor:'everything@democracy.is', answers: ['Cats', 'Beyonce', 'Fritz'],title: 'Who runs the World\?' ,start: '2017-08-26T18:57:58.441Z'}}">Vote</router-link>
 
+    <!-- <router-link :to="{ name: 'vote-view', params: { voteID: 'FirstVOTE' }, query: { data: stubDataString}}">Sample Vote</router-link> -->
+    <!-- <div v-on:click="feedURL()">TEST URL</div> -->
+    <!-- <br> -->
+    <!-- <router-link to="createvote">Create a new vote</router-link> -->
+
+
+
   </div>
 </template>
 
@@ -30,21 +37,21 @@ import { QBtn } from 'quasar'
 export default {
   data () {
     const stubData={
-      sponsor: "everything@democracy.is", 
+      sponsor: "everything@democracy.is",
       questions: {
-        answers: ["Cats", "Beyonce", "Fritz"], 
+        answers: ["Cats", "Beyonce", "Fritz"],
         title: "Who should rule the world ?"
       },
-      title: "World Leadership Vote", 
+      title: "World Leadership Vote",
       start: "2017-08-26T17:57:58.441Z"
     }
 
-
     return {
-    	url: "", 
-      stubData
+    	url: "",
+      stubData,
+      stubDataString: JSON.stringify(stubData)
     }
-  }, 
+  },
   components: { QBtn },
   computed : {},
   methods : {

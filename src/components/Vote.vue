@@ -1,50 +1,29 @@
 <template>
   <!-- if you want automatic padding use "layout-padding" class -->
   <div class="layout-padding">
-    <q-card>
-      <!-- <h1>Vote</h1> -->
-      <q-card-title>
-        <h2>{{title}}</h2>
-      </q-card-title>
-      <div class="text-italic">by {{sponsor}}</div>
-       <div class="text-italic">voteID: {{voteID}} </div>
-      <br>
-      <div class="mb3">Vote ends in {{timeRemaining}}</div>
-  <!--     <big class="block mb2">
-        {{questions[0].title}}
-      </big> -->
-      <template v-for="(item, index) in answers">
-        <!-- TODO: Change this to use radio buttons instead -->
-        <!-- v-if just assigns the color -->
-        <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
-        <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
-      </template>
-      <div>
-        <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
-      </div>
-    </q-card>
+    <!-- <h1>Vote</h1> -->
+    <q-card-title>
+      <h2>{{title}}</h2>
+    </q-card-title>
+    <div class="text-italic">by {{sponsor}}</div>
+      <div class="text-italic">voteID: {{voteID}} </div>
+    <br>
+    <div class="mb3">Vote ends in {{timeRemaining}}</div>
+    <template v-for="(item, index) in questions.answers">
+      <!-- TODO: Change this to use radio buttons instead -->
+      <!-- v-if just assigns the color -->
+      <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
+      <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
+    </template>
+    <div>
+      <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
+    </div>
   </div>
 </template>
 
 <script>
 import { QBtn, QCard, QCardTitle } from 'quasar';
 import moment from 'moment';
-
-// const stubData = {
-//   sponsor: 'robert@riemann.cc',
-//   participants: ['@gmail.com', 'robert@riemann.cc'],
-//   questions: [
-//     { answers: ['red', 'blue', 'green'],
-//       votes: 1,
-//       title: 'What is your favourite color?',
-//       _id: 'fe7e20592780dd4d2ceb26b01251fe4573c96715'
-//     },
-//   ],
-//   title: 'My Vote Title',
-//   start: "2017-08-26T16:57:58.441Z",
-// };
-
-// const stubData=getVoteParams("DummyID");
 
 export default {
   created: function () {
@@ -55,7 +34,7 @@ export default {
     // placeholder for vote data, put in url via
     // data query param in url (?data=)
     const voteID = this.$route.params.voteID
-    const data = this.$route.query;
+    const data = JSON.parse(this.$route.query.data);
     console.log(data);
 
     return Object.assign({},
@@ -63,7 +42,6 @@ export default {
       chosenAnswerIndex: null,
       timeRemaining: '-',
       voteID,
-
     });
   },
   components: { QBtn, QCard, QCardTitle },
@@ -94,7 +72,6 @@ export default {
         this.timeRemaining = `${duration.hours()} hours ${duration.minutes()} minutes ${duration.seconds()} seconds`;
       }, interval);
     },
-  // props: ['sponso', 'file']
   }
 }
 </script>
