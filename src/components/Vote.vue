@@ -3,13 +3,14 @@
   <div class="layout-padding">
     <h1>Vote</h1>
     <h2>{{title}}</h2>
-    <h5>{{voteID}}</h5>
     <div class="text-italic">by {{sponsor}}</div>
+     <div class="text-italic">voteID: {{voteID}} </div>
+    <br>
     <div class="mb3">Vote ends in {{timeRemaining}}</div>
-    <big class="block mb2">
+<!--     <big class="block mb2">
       {{questions[0].title}}
-    </big>
-    <template v-for="(item, index) in questions[0].answers">
+    </big> -->
+    <template v-for="(item, index) in answers">
       <!-- TODO: Change this to use radio buttons instead -->
       <!-- v-if just assigns the color -->
       <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
@@ -48,14 +49,15 @@ export default {
     // placeholder for vote data, put in url via
     // data query param in url (?data=)
     const voteID = this.$route.params.voteID
-    const data = this.$route.query.data;
+    const data = this.$route.query;
     console.log(data);
 
     return Object.assign({}, 
-      stubData, {
+      data, {
       chosenAnswerIndex: null,
       timeRemaining: '-',
-      voteID
+      voteID, 
+      // data
     });
   },
   components: { QBtn },

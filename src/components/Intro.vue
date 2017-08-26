@@ -6,7 +6,7 @@
     <!-- <a v-bind:href="feedURL()"> Sample vote </a> -->
 <!--     <router-link to="'feedURL()'">Sample vote</router-link>
  -->
-    <router-link :to="{ name: 'vote-view', params: { voteID: 'FirstVOTE' }, query: {title: 'Who runs the World\?'}}">Sample Vote</router-link>
+    <router-link :to="{ name: 'vote-view', params: { voteID: 'FirstVOTE' }, query: { sponsor:'everything@democracy.is', questions :{ answers: ['Cats', 'Beyonce', 'Fritz'],title: 'Who runs the World\?'} ,start: '2017-08-26T17:57:58.441Z'}}">Sample Vote</router-link>
     <div v-on:click="feedURL()">TEST URL</div>
 
     <br>
