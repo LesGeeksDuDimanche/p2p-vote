@@ -8,7 +8,9 @@
       <q-input type="text" placeholder="Question" v-model="question"/>
       <q-chips-input v-model="options" placeholder="Add option"/>
       <div class="mt4">
-        <router-link :to="{ name: 'vote-view', params: { voteID: voteID }, query: { data: urlData }}">Create Vote</router-link>
+        <router-link :to="{ name: 'vote-view', params: { voteID: voteID }, query: { data: urlData }}">
+          <q-btn>Create Vote</q-btn>
+        </router-link>
       </div>
   </div>
 </template>
