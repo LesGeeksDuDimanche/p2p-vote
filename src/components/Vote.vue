@@ -57,7 +57,7 @@ export default {
     },
     vote() {
       if (this.chosenAnswerIndex !== null) {
-        this.$router.push({ path: '../results' });
+        this.$router.push({ path: '../waiting' });
       } else {
         alert('No chosenAnswerIndex set');
       }
