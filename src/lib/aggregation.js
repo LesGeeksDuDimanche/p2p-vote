@@ -1,10 +1,13 @@
 'use strict';
 
+import Aggregate from './aggregate';
+
 var signaller;
 var node;
 var aggregator;
 var result;
 var participantCount;
+
 // requires start time (Date object) of the aggregation
 export function setupAggregationStart(start) {
   var timeout = (start.getTime() - (new Date()).getTime());
@@ -53,8 +56,10 @@ export function createNode(email, peer, host) {
 }
 
 export function startAggregation() {
+  var initialAggregate = new Aggregate(aggregate);
+
   console.info("startAggregation");
-  aggregator = new Aggregator(node, node._self);
+  aggregator = new Aggregator(node, node._self, initialAggregate);
   aggregator.processAggregation(function () {
     result = aggregator.resultContainer;
     participantCount = aggregator.resultContainer.counter;

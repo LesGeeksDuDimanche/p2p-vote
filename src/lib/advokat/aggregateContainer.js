@@ -9,6 +9,7 @@ var akConstants = require('./constants');
 var akUtils = require('./utils');
 var _ = require('lodash');
 var assert = require('assert');
+var Aggregate = require('./aggregate')
 
 class AggregateContainer {
   constructor(options) {
@@ -18,6 +19,7 @@ class AggregateContainer {
     this.branchID = options.branchID;
     this.childIDs = options.childIDs;
     this.iD = akUtils.getHash(this.toSharable());
+    this.aggregate = new Aggregate(options.aggregate);
 
     this.sources = options.sources ? options.sources : [];
   }
@@ -27,7 +29,8 @@ class AggregateContainer {
       counter: this.counter,
       branchDepth: this.branchDepth,
       branchID: this.branchID,
-      childIDs: this.childIDs
+      childIDs: this.childIDs,
+      aggregate: this.aggregate
     }
   }
 
@@ -41,7 +44,8 @@ class AggregateContainer {
       counter: _.reduce(_.map(childs, 'counter'), function(sum, n) {return sum+n}, 0),
       branchDepth: childs[0].branchDepth-1,
       branchID: branchID,
-      childIDs: _.map(childs, 'iD').sort()
+      childIDs: _.map(childs, 'iD').sort(),
+      aggregate: Aggregate.union(childs[0].aggregate, childs[1].aggregate)
     }
     return new AggregateContainer(options);
   }
