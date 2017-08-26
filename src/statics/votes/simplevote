@@ -1,6 +1,11 @@
 { "sponsor": "everything@democracy.is",
   "participants": ["@gmail.com", "robert@riemann.cc"],
-	"answers": ["Cats", "Beyonce", "Fritz"],
-  "title": "Who should rule the world ?",
+  "questions": [
+    { "answers": ["Cats", "Beyonce", "Fritz"],
+  	"title": "Who should rule the world ?",
+      "_id": "fe7e20592780dd4d2ceb26b01251fe4573c96715"
+    }
+  ],
+  "title": "World Leadership Vote",
   "start": "2017-08-26T17:57:58.441Z"
 }

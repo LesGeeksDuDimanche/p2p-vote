@@ -61,6 +61,14 @@ Vue.mixin({
       let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
       return urlParameters;
     },
+    getVoteParams(voteID) {
+      this.$http.get('/statics/votes/simplevote').then((response) => {
+        var voteParams= JSON.parse(response.bodyText)
+        return voteParams
+      }, (response) => {
+        console.log("Error in getVoteParams")
+      });
+    }, 
     feedURL() {
       this.$http.get('/statics/votes/simplevote').then((response) => {
         // console.log(response.bodyText)

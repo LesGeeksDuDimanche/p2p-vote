@@ -3,12 +3,18 @@
   <div class="layout-padding">
     <h1>Welcome to P2P Vote</h1>
     <!-- <q-btn round style="color: #FF0080" v-on:click="feedURL()">feedURL</q-btn> -->
-    <a v-bind:href="feedURL()"> Sample vote </a>
+    <!-- <a v-bind:href="feedURL()"> Sample vote </a> -->
+<!--     <router-link to="'feedURL()'">Sample vote</router-link>
+ -->
+    <router-link :to="{ path: 'vote', params: { voteID: 'FirstVOTE' }}">Sample Vote</router-link>
+
+
     <br>
 
 
 
-    <a  href="/createvote/">Create a new vote</a>
+    <router-link to="createvote">Create a new vote</router-link>
+
 
 
   </div>
