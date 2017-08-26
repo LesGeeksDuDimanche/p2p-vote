@@ -28,6 +28,8 @@ export default new VueRouter({
     { path: '/createvote', component: load('Createvote') },
     { name: 'vote-view', path: '/vote/:voteID', component: load('Vote'), props:true },
     { path: '/results', component: load('Results') },
+    // { path: '/landing', component: load('Landing') },
+
 
     { path: '/robert', component: load('Robert'),
       children: [
