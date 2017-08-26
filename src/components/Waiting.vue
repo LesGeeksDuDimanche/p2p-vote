@@ -21,6 +21,9 @@ export default {
   },
   mounted() {
     makeParticles();
+    setTimeout(() => {
+      this.$router.push('../results');
+    }, 6000);
   }
 }
 
