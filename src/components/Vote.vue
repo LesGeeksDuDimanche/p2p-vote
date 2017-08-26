@@ -1,7 +1,7 @@
 <template>
   <!-- if you want automatic padding use "layout-padding" class -->
   <div class="layout-padding">
-    <q-card square=true>
+    <q-card>
       <!-- <h1>Vote</h1> -->
       <q-card-title>
         <h2>{{title}}</h2>
@@ -58,11 +58,11 @@ export default {
     const data = this.$route.query;
     console.log(data);
 
-    return Object.assign({}, 
+    return Object.assign({},
       data, {
       chosenAnswerIndex: null,
       timeRemaining: '-',
-      voteID, 
+      voteID,
 
     });
   },
