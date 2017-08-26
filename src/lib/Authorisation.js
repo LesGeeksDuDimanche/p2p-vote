@@ -40,7 +40,7 @@ export function isLoggedIn() {
   var session = hello('google').getAuthResponse();
   console.log('session:', session);
   console.log('isLoggedIn', session && session.access_token && session.expires > currentTime);
-  return session && session.access_toke && session.expires > currentTime;
+  return !!session && session.access_toke && session.expires > currentTime;
 }
 
 export function requireAuth(to, from, next) {

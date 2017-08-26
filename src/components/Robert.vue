@@ -16,11 +16,11 @@
         P2P Vote
         <div slot="subtitle">Running on Quasar v{{$q.version}}</div>
       </q-toolbar-title>
-      <q-btn flat v-show="isLoggedIn" @click="handleLogout()">
+      <q-btn flat v-show="handleIsLoggedIn()" @click="handleLogout()">
         Logout
         <q-icon name="lock"/>
       </q-btn>
-      <q-btn flat v-show="!isLoggedIn" @click="handleLogin()">
+      <q-btn flat v-show="handleIsLoggedIn()" @click="handleLogin()">
         Login
         <q-icon name="lock" />
       </q-btn>
@@ -96,11 +96,13 @@ export default {
     QItemSide,
     QItemMain
   },
+  /*
   data() {
     return {
       isLoggedIn: isLoggedIn()
     }
   },
+  */
   methods: {
     handleLogin() {
       console.log('login');
@@ -111,10 +113,12 @@ export default {
       logout();
     },
     /*
-    handleIsLoggedIn() {
-      return isLoggedIn();
-    },
     */
+    handleIsLoggedIn() {
+      var val = isLoggedIn();
+      console.log('logged', val);
+      return val;
+    },
   }
 }
 </script>
