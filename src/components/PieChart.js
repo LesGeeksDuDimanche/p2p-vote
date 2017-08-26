@@ -11,7 +11,7 @@ export default Pie.extend({
       datasets: [
         {
           // hopefully we don't need more than this many colors...
-          backgroundColor: ["#ee4035", "#f37737", "#f9e97a", "#7ac043", "#9ed9f7"],
+          backgroundColor: ["#721CC9", "#597700", "#f9e97a", "#7ac043", "#9ed9f7"],
           data: this.data
         }
       ]
