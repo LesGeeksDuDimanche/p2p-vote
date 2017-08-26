@@ -27,7 +27,7 @@ export default {
       question: '',
       voteID: Math.round(Math.random() * 10000000),
       now: moment().toDate(),
-      options: ['', ''],
+      options: [],
       endDate: moment().add(2, 'days').toDate()
     }
   },
