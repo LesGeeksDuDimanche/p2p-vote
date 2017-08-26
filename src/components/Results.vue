@@ -4,12 +4,17 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <h1 style="color:#013D4E"><i>Who runs the world?</i></h1>
     <h3 style="color:gray"><i>Results</i></h3>
+    <br><br>
     <div class="row">
-      <div class="col-md-6">
-        <span style="font-size:3rem">Total Votes {{totalVotes}}</span>
+      <div class="col-md-5 text-center">
+        <span style="font-size:2rem">Total Votes {{totalVotes}}</span>
+        <br><br>
+        <img class="img-responsive" src="https://media.giphy.com/media/9coDSVK5qgxkA/giphy.gif">
+        <br><br>
+        <!-- <img class="img-" width="199rem" src="https://media.giphy.com/media/71PLYtZUiPRg4/giphy.gif"> -->
         </div>
           <!-- <div style="width: 250px;"> -->
-      <div class="col-md-6">
+      <div class="col-md-7">
         <pie-chart :data="chartData" :labels="chartLabels">
           
         </pie-chart>
@@ -25,7 +30,7 @@ import PieChart from './PieChart';
 export default {
   data () {
     return {
-      chartData: [7600, 3400],
+      chartData: [7630, 3423],
       chartLabels: [ 'Beyonce','Cats']
     }
   },
