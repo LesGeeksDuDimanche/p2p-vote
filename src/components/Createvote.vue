@@ -22,12 +22,12 @@ export default {
   components: { QInput, QDatetime, QBtn, QIcon, QList, QItem, QChipsInput },
   data () {
     return {
-      title: 'Who runs the world?',
-      author: 'beyonce_fan@gmail.com',
-      question: 'Who runs the world?',
+      title: '',
+      author: '',
+      question: '',
       voteID: Math.round(Math.random() * 10000000),
       now: moment().toDate(),
-      options: ['Beyonce', 'Cats'],
+      options: ['', ''],
       endDate: moment().add(2, 'days').toDate()
     }
   },
