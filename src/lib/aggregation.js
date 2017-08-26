@@ -2,6 +2,17 @@
 
 import Aggregate from './aggregate';
 
+// kademlia + transport
+var kademlia = require('kad');
+var EventEmitter = require('events').EventEmitter;
+var WebRTC = require('./transport');
+
+// advokat
+var Aggregator = require('./advokat/aggregator');
+var akConstants = require('./advokat/constants');
+kademlia.constants.T_RESPONSETIMEOUT = 5*1000; // in ms
+kademlia.constants.MESSAGE_TYPES.push(...akConstants.MESSAGE_TYPES);
+
 var signaller;
 var node;
 var aggregator;
