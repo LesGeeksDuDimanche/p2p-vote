@@ -39,14 +39,11 @@ export default {
 
   // Send a request to the login URL and save the returned JWT
   login (redirect) {
-    hello('google').login().then(function() {
+    hello.login('google', {}, function() {
      // Redirect to a specified route
      if (redirect) {
        router.go(redirect);
      }
-    })
-    .catch(function (error) {
-      console.log(error)
     });
   },
 
