@@ -16,7 +16,9 @@
       <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
       <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
     </template>
-    <q-btn class="mt3 block" v-on:click="vote()">Vote</q-btn>
+    <div>
+      <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
+    </div>
   </div>
 </template>
 
@@ -24,19 +26,19 @@
 import { QBtn } from 'quasar';
 import moment from 'moment';
 
-const stubData = {
-  sponsor: 'robert@riemann.cc',
-  participants: ['@gmail.com', 'robert@riemann.cc'],
-  questions: [
-    { answers: ['red', 'blue', 'green'],
-      votes: 1,
-      title: 'What is your favourite color?',
-      _id: 'fe7e20592780dd4d2ceb26b01251fe4573c96715'
-    },
-  ],
-  title: 'My Vote Title',
-  start: "2017-08-26T16:57:58.441Z",
-};
+// const stubData = {
+//   sponsor: 'robert@riemann.cc',
+//   participants: ['@gmail.com', 'robert@riemann.cc'],
+//   questions: [
+//     { answers: ['red', 'blue', 'green'],
+//       votes: 1,
+//       title: 'What is your favourite color?',
+//       _id: 'fe7e20592780dd4d2ceb26b01251fe4573c96715'
+//     },
+//   ],
+//   title: 'My Vote Title',
+//   start: "2017-08-26T16:57:58.441Z",
+// };
 
 // const stubData=getVoteParams("DummyID");
 
@@ -57,7 +59,7 @@ export default {
       chosenAnswerIndex: null,
       timeRemaining: '-',
       voteID, 
-      // data
+
     });
   },
   components: { QBtn },
