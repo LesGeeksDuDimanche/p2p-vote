@@ -13,7 +13,7 @@
       <!-- TODO: Change this to use radio buttons instead -->
       <!-- v-if just assigns the color -->
       <div class="mr2 inline-block">
-        <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
+        <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)" color="blue">{{item}}</q-btn>
         <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
       </div>
     </template>
@@ -58,6 +58,7 @@ export default {
     vote() {
       if (this.chosenAnswerIndex !== null) {
         alert(`Will submit vote now with index ${this.chosenAnswerIndex}`);
+        this.$router.push({ path: '../results' });
       } else {
         alert('No chosenAnswerIndex set');
       }
