@@ -24,11 +24,20 @@ if (__THEME === 'mat') {
 }
 import 'quasar-extras/material-icons'
 // import 'quasar-extras/ionicons'
-// import 'quasar-extras/fontawesome'
+import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
 // navigation guard
 import Authorisation from './lib/Authorisation'
+import { QBtn, QCard, QCardTitle } from 'quasar';
+// why this does not work to export globablly?
+export default {
+  components: {
+    QBtn,
+    QCard,
+    QCardTitle
+  }
+}
 
 // from https://web-und-die-welt.de/web/authentifizierung-vue-app/
 router.beforeEach((to, from, next) => {

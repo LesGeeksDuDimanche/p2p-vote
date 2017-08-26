@@ -1,29 +1,33 @@
 <template>
   <!-- if you want automatic padding use "layout-padding" class -->
   <div class="layout-padding">
-    <h1>Vote</h1>
-    <h2>{{title}}</h2>
-    <div class="text-italic">by {{sponsor}}</div>
-     <div class="text-italic">voteID: {{voteID}} </div>
-    <br>
-    <div class="mb3">Vote ends in {{timeRemaining}}</div>
-<!--     <big class="block mb2">
-      {{questions[0].title}}
-    </big> -->
-    <template v-for="(item, index) in answers">
-      <!-- TODO: Change this to use radio buttons instead -->
-      <!-- v-if just assigns the color -->
-      <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
-      <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
-    </template>
-    <div>
-      <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
-    </div>
+    <q-card square=true>
+      <!-- <h1>Vote</h1> -->
+      <q-card-title>
+        <h2>{{title}}</h2>
+      </q-card-title>
+      <div class="text-italic">by {{sponsor}}</div>
+       <div class="text-italic">voteID: {{voteID}} </div>
+      <br>
+      <div class="mb3">Vote ends in {{timeRemaining}}</div>
+  <!--     <big class="block mb2">
+        {{questions[0].title}}
+      </big> -->
+      <template v-for="(item, index) in answers">
+        <!-- TODO: Change this to use radio buttons instead -->
+        <!-- v-if just assigns the color -->
+        <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
+        <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
+      </template>
+      <div>
+        <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
+      </div>
+    </q-card>
   </div>
 </template>
 
 <script>
-import { QBtn } from 'quasar';
+import { QBtn, QCard, QCardTitle } from 'quasar';
 import moment from 'moment';
 
 // const stubData = {
@@ -62,7 +66,7 @@ export default {
 
     });
   },
-  components: { QBtn },
+  components: { QBtn, QCard, QCardTitle },
   methods: {
     chooseAnswer(answerIndex) {
       console.log(`voted for ${answerIndex}`);
