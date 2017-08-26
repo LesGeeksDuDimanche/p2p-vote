@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     prettyDate() {
-      return moment(this.endDate).format('MMMM D YYYY, h:mm a')
+      return moment(this.endDate+10000).format('MMMM D YYYY, h:mm a')
     },
     urlData() {
       const data = {

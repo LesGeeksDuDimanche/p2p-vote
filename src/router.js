@@ -29,6 +29,8 @@ export default new VueRouter({
     { path: '/waiting', component: load('Waiting') },
     { name: 'vote-view', path: '/vote/:voteID', component: load('Vote'), props:true },
     { path: '/results', component: load('Results') },
+    // { path: '/landing', component: load('Landing') },
+
 
     { path: '/robert', component: load('Robert'),
       children: [
