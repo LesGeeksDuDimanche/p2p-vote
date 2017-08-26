@@ -15,7 +15,9 @@
       <q-btn v-if="isChosenAnswerIndex(index)" v-on:click="choseAnswer(index)" color="blue">{{item}}</q-btn>
       <q-btn v-else="isChosenAnswerIndex(index)" v-on:click="chooseAnswer(index)">{{item}}</q-btn>
     </template>
-    <q-btn class="mt3 block" v-on:click="vote()">Vote</q-btn>
+    <div>
+      <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
+    </div>
   </div>
 </template>
 
@@ -51,7 +53,7 @@ export default {
     const data = this.$route.query.data;
     console.log(data);
 
-    return Object.assign({}, 
+    return Object.assign({},
       stubData, {
       chosenAnswerIndex: null,
       timeRemaining: '-',
