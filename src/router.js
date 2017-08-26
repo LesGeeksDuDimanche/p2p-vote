@@ -25,7 +25,7 @@ export default new VueRouter({
 
     { path: '/', component: load('Intro') },
     { path: '/createvote', component: load('Createvote') },
-    { path: '/vote', component: load('Vote') },
+    { path: '/vote/:voteID', component: load('Vote') },
     { path: '/results', component: load('Results') },
 
     // Always leave this last one

@@ -36,6 +36,8 @@ const stubData = {
   start: "2017-08-26T16:57:58.441Z",
 };
 
+// const stubData=getVoteParams("DummyID");
+
 export default {
   created: function () {
     this.countdown();
