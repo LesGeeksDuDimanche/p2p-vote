@@ -1,0 +1,28 @@
+{
+  "name": "quasar-app",
+  "version": "0.0.1",
+    "kad": {
+      "version": "1.6.5",
+      "from": "kad@>=1.5.5 <2.0.0",
+      "engines": {
+        "node": "6.x.x"
+      },
+      "resolved": "https://registry.npmjs.org/kad/-/kad-1.6.5.tgz"
+    },
+    "kad-fs": {
+      "version": "0.0.4",
+      "from": "kad-fs@0.0.4",
+      "resolved": "https://registry.npmjs.org/kad-fs/-/kad-fs-0.0.4.tgz"
+    },
+    "kad-localstorage": {
+      "version": "0.0.7",
+      "from": "kad-localstorage@0.0.7",
+      "resolved": "https://registry.npmjs.org/kad-localstorage/-/kad-localstorage-0.0.7.tgz"
+    },
+    "kad-memstore": {
+      "version": "0.0.1",
+      "from": "kad-memstore@0.0.1",
+      "resolved": "https://registry.npmjs.org/kad-memstore/-/kad-memstore-0.0.1.tgz"
+    }
+  }
+}
