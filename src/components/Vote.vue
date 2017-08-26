@@ -57,7 +57,6 @@ export default {
     },
     vote() {
       if (this.chosenAnswerIndex !== null) {
-        alert(`Will submit vote now with index ${this.chosenAnswerIndex}`);
         this.$router.push({ path: '../results' });
       } else {
         alert('No chosenAnswerIndex set');
