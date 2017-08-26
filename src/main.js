@@ -27,6 +27,7 @@ import 'quasar-extras/material-icons'
 // import 'quasar-extras/fontawesome'
 // import 'quasar-extras/animate'
 
+/*
 // navigation guard
 import Authorisation from './lib/Authorisation'
 
@@ -39,24 +40,22 @@ router.beforeEach((to, from, next) => {
     next()
   }
 });
+*/
 
 Quasar.start(() => {
   /* eslint-disable no-new */
   new Vue({
     el: '#q-app',
     router,
-    render: h => h(require('./App'))
+    render: h => h(require('./App')),
+    data: {
+      session: 'nein'
+    }
   })
 })
 
 Vue.mixin({
   methods: {
-    login() {
-      return Authorisation.login();
-    },
-    logout() {
-      return Authorisation.logout();
-    },
     createURL(voteInfo) {
       let urlParameters = Object.keys(voteInfo).map((i) => i+'='+voteInfo[i]).join('&')
       return urlParameters;
@@ -68,7 +67,7 @@ Vue.mixin({
       }, (response) => {
         console.log("Error in getVoteParams")
       });
-    }, 
+    },
     feedURL() {
       this.$http.get('/statics/votes/simplevote').then((response) => {
         // console.log(response.bodyText)
