@@ -3,6 +3,7 @@
   <div class="layout-padding">
     <h1>Vote</h1>
     <h2>{{title}}</h2>
+    <h5>{{voteID}}</h5>
     <div class="text-italic">by {{sponsor}}</div>
     <div class="mb3">Vote ends in {{timeRemaining}}</div>
     <big class="block mb2">
@@ -41,16 +42,20 @@ const stubData = {
 export default {
   created: function () {
     this.countdown();
+    // this.$route.params
   },
   data () {
     // placeholder for vote data, put in url via
     // data query param in url (?data=)
+    const voteID = this.$route.params.voteID
     const data = this.$route.query.data;
     console.log(data);
 
-    return Object.assign({}, stubData, {
+    return Object.assign({}, 
+      stubData, {
       chosenAnswerIndex: null,
-      timeRemaining: '-'
+      timeRemaining: '-',
+      voteID
     });
   },
   components: { QBtn },
@@ -81,6 +86,7 @@ export default {
         this.timeRemaining = `${duration.hours()} hours ${duration.minutes()} minutes ${duration.seconds()} seconds`;
       }, interval);
     },
+  // props: ['sponso', 'file']
   }
 }
 </script>

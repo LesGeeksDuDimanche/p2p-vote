@@ -6,8 +6,8 @@
     <!-- <a v-bind:href="feedURL()"> Sample vote </a> -->
 <!--     <router-link to="'feedURL()'">Sample vote</router-link>
  -->
-    <router-link :to="{ path: 'vote', params: { voteID: 'FirstVOTE' }}">Sample Vote</router-link>
-
+    <router-link :to="{ name: 'vote-view', params: { voteID: 'FirstVOTE' }  }">Sample Vote</router-link>
+    <div v-on:click="feedURL()">TEST URL</div>
 
     <br>
 
@@ -25,8 +25,20 @@ import { QBtn } from 'quasar'
 
 export default {
   data () {
+    const stubData={
+      sponsor: "everything@democracy.is", 
+      questions: {
+        answers: ["Cats", "Beyonce", "Fritz"], 
+        title: "Who should rule the world ?"
+      },
+      title: "World Leadership Vote", 
+      start: "2017-08-26T17:57:58.441Z"
+    }
+
+
     return {
-    	url: ""
+    	url: "", 
+      stubData
     }
   }, 
   components: { QBtn },

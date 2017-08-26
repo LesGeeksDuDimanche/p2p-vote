@@ -1,7 +1,8 @@
 <template>
   <!-- Don't drop "q-app" class -->
   <div id="q-app">
-  	<i>P2P Vote</i>
+  	<router-link to="/"><i>P2P Vote</i></router-link>
+
     <router-view />
   </div>
 </template>
