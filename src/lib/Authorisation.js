@@ -8,7 +8,7 @@ hello.init({
   // google:  'AIzaSyAPgAkZ7_xKEiM4kEErtN6zWVt-XKL30uI'
   google: '785009904705-65k7sf0dk54uetqs90p7gvn59on8288u.apps.googleusercontent.com',
 }, {
-  redirect_uri: 'redirect.html',
+  redirect_uri: 'statics/redirect.html',
   scope: 'email',
   force: true // not clear what it does (insist on scope?)
 });
@@ -40,10 +40,12 @@ export default {
   // Send a request to the login URL and save the returned JWT
   login (redirect) {
     hello.login('google', {}, function() {
-     // Redirect to a specified route
-     if (redirect) {
-       router.go(redirect);
-     }
+      var session = hello('google').getAuthResponse();
+      console.log('session:', session);
+      // Redirect to a specified route
+      if (redirect) {
+        router.go(redirect);
+      }
     });
   },
 

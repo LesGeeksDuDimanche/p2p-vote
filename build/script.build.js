@@ -21,11 +21,8 @@ console.log((' Building Quasar App with "' + env.platform.theme + '" theme...\n'
 
 shell.mkdir('-p', targetPath)
 shell.cp('-R', 'src/statics', targetPath)
-shell.cp('-R', 'src/statics', targetPath)
 // https://www.netlify.com/docs/redirects/
 shell.cp('src/_redirects', targetPath)
-// file for helloJS
-shell.cp('src/redirect.html', targetPath)
 
 function finalize () {
   console.log((
