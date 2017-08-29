@@ -14,6 +14,7 @@ import Vue from 'vue'
 import Quasar from 'quasar'
 import router from './router'
 import VueResource from 'vue-resource'
+import VueMarkdown from 'vue-markdown'
 
 Vue.config.productionTip = false
 Vue.use(Quasar) // Install Quasar Framework
