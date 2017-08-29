@@ -29,6 +29,7 @@ $ quasar dev
 
 # build for production with minification
 $ quasar build
+$ git subtree push --prefix dist origin gh-pages
 
 # lint code
 $ quasar lint
