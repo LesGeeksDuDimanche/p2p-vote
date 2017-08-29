@@ -5,7 +5,6 @@
       <q-input type="text" placeholder="Vote Title" v-model="title"/>
       <q-input type="text" placeholder="Author" v-model="author"/>
       <q-datetime type="datetime" placeholder="End Date and Time" v-model="endDate" :display-value=prettyDate />
-      <q-input type="text" placeholder="Question" v-model="question"/>
       <q-chips-input v-model="options" placeholder="Add option"/>
       <div class="mt4">
         <router-link :to="{ name: 'vote-view', params: { voteID: voteID }, query: { data: urlData }}">
