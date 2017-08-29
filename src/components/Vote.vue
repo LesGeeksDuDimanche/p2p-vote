@@ -18,7 +18,7 @@
       </div>
     </template>
     <div>
-      <q-btn class="mt3" v-on:click="vote()">Vote</q-btn>
+      <q-btn class="mt3" color="secondary" v-on:click="vote()">Vote</q-btn>
     </div>
   </div>
 </template>
