@@ -187,7 +187,7 @@ canvas {
   left: 0;
   right: 0;
   top: 180px;
-  background-color: #499abb;
+  background-color: #064152;
   background-image: url("");
   background-repeat: no-repeat;
   background-size: cover;
