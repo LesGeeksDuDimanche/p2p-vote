@@ -19,7 +19,7 @@ module.exports = {
 
   build: {
     env: require('./prod.env'),
-    publicPath: '/p2p-vote/',
+    publicPath: '/p2p-vote/dist/',
     productionSourceMap: false,
 
     // Remove unused CSS

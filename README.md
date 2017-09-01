@@ -2,6 +2,8 @@
 
 > Decentralized voting app based on Web-RTC 
 
+[Try it at](./dist/)
+
 Work during the .Democracy Hackathon in Factory Berlin by 
 
 * Robert Riemann 
@@ -29,7 +31,10 @@ $ quasar dev
 
 # build for production with minification
 $ quasar build
-$ git subtree push --prefix dist origin gh-pages
+
+# Publication
+on gh-pages, dist folder
+old: _$ git subtree push --prefix dist origin gh-pages_
 
 # lint code
 $ quasar lint

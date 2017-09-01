@@ -1,0 +1,14 @@
+{ sponsor: 'robert@riemann.cc',
+  participants: ['@gmail.com', 'robert@riemann.cc'],
+  questions: 
+   [ { answers: ['yes', 'no', 'maybe'],
+       votes: 2,
+       title: 'Is this a first question?',
+       _id: 'fe7e20592780dd4d2ceb26b01251fe4573c96715' },
+     { answers: ['oui', 'non', 'peut-être'],
+       votes: 1,
+       title: 'Is this a second question?',
+       _id: 'bf904246ffd4dcf7a8624cd001de573de8a73a5a' } ],
+  title: 'My Vote Title',
+  start: "2017-08-25T16:57:58.441Z",
+}
