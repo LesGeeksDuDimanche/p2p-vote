@@ -71,7 +71,7 @@ Vue.mixin({
       return urlParameters;
     },
     getVoteParams(voteID) {
-      this.$http.get('/statics/votes/simplevote').then((response) => {
+      this.$http.get('statics/votes/simplevote').then((response) => {
         var voteParams= JSON.parse(response.bodyText)
         return voteParams
       }, (response) => {
@@ -79,7 +79,7 @@ Vue.mixin({
       });
     },
     feedURL() {
-      this.$http.get('/statics/votes/simplevote').then((response) => {
+      this.$http.get('statics/votes/simplevote').then((response) => {
         // console.log(response.bodyText)
         var voteParams= JSON.parse(response.bodyText)
         console.log(voteParams)

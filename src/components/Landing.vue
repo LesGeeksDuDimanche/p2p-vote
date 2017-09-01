@@ -4,7 +4,7 @@
   <!-- <img src="assets/landing-page.png"> -->
     
   <router-link to="createvote">
-    <img src="../assets/landing-page.png" style="width=100%">
+    <img src="assets/landing-page.png" style="width=100%">
     
   </router-link>
   </div>

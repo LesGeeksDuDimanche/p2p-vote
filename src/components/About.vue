@@ -46,7 +46,7 @@ $ quasar lint
   </vue-markdown>
     
 
-    <img style=" bottom: 3rem; width: 60%;" src="../assets/easytohandle_illu.png">
+    <img style=" bottom: 3rem; width: 60%;" src="assets/easytohandle_illu.png">
         
 
   </div>
